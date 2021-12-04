@@ -1,5 +1,5 @@
 # --- App Imports
-from app import db
+from app import db, login
 
 # --- Flask Imports
 from flask_login import UserMixin
@@ -26,3 +26,8 @@ class Password(UserMixin, db.Model):
 
     # --- Relationships
     user_uid = db.Column(db.String, db.ForeignKey('user.uid'))
+
+
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
