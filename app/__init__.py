@@ -3,11 +3,13 @@ from flask import Flask, url_for
 from flask_mail import Mail
 from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
+from flask_jwt_extended import JWTManager
 
 from config import DevConfig
 
 bootstrap = Bootstrap()
 mail = Mail()
+jwt = JWTManager()
 
 login = LoginManager()
 login.login_view = 'account.login'
@@ -29,6 +31,7 @@ def create_app( config_class=DevConfig ):
     app.config.from_object(config_class)
 
     db.init_app(app)
+    jwt.init_app(app)
     mail.init_app(app)
     login.init_app(app)
     bootstrap.init_app(app)

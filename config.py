@@ -4,6 +4,7 @@ import os
 class BaseConfig:
 
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+    JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY') or 'totally-random-secret-key'
     WORKDIR = os.path.abspath(os.path.dirname(__file__))
 
 
