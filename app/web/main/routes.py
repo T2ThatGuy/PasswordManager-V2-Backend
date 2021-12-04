@@ -8,4 +8,4 @@ from app.web.main import bp
 @bp.route('/index', methods=['GET'])
 def main_index():
 
-    return redirect(url_for('dashboard.index'))
+    return redirect(url_for('web.dashboard.index'))
