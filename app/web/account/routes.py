@@ -1,8 +1,9 @@
 # --- Flask Imports
-from flask import redirect, url_for
+from flask import redirect, url_for, render_template
 
 # --- Web Imports
 from app.web.account import bp
+from app.web.account.forms import LoginForm
 
 # --- App Imports
 
@@ -12,7 +13,9 @@ from app.web.account import bp
 
 @bp.route('/login', methods=['GET'])
 def login():
-    return redirect(url_for('debug.routes'))
+    form = LoginForm()
+
+    return render_template('web/login.html', title='Login', form=form)
 
 @bp.route('/forgot-psw', methods=['GET'])
 def forgot_psw():
