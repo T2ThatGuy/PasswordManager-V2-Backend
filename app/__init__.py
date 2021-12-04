@@ -22,6 +22,7 @@ migrate = Migrate()
 # --- Blueprints
 from app.api import api_bp
 from app.web import web_bp
+from app.debug import bp as debug_bp
 
 def create_app( config_class=DevConfig ):
     app = Flask(__name__)
@@ -38,5 +39,6 @@ def create_app( config_class=DevConfig ):
     # --- Register api and web blueprints
     app.register_blueprint(api_bp)
     app.register_blueprint(web_bp)
+    app.register_blueprint(debug_bp)
 
     return app
