@@ -42,3 +42,5 @@ def create_app( config_class=DevConfig ):
     app.register_blueprint(debug_bp)
 
     return app
+
+from app import models
