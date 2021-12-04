@@ -1,5 +1,5 @@
 # --- Flask Imports
-from flask import redirect, url_for
+from flask import render_template
 
 # --- Dashboard Imports
 from app.web.dashboard import bp
@@ -14,4 +14,4 @@ from app.web.dashboard import bp
 @bp.route('/index', methods=['GET'])
 def index():
 
-    return redirect(url_for('debug.routes'))
+    return render_template('web/base.html')
