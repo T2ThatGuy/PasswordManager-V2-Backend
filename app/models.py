@@ -9,8 +9,10 @@ class User(UserMixin, db.Model):
 
     uid = db.Column(db.String, primary_key=True)
     username = db.Column(db.String)
-    password = db.Column(db.String)
+    master_password = db.Column(db.String)
     email = db.Column(db.String)
+
+    passwords = db.relationship("Password", backref='user')
 
 
 class Password(UserMixin, db.Model):
